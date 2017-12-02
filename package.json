@@ -12,7 +12,7 @@
   },
   "engines": {
     "node": ">=4.8.6",
-    "npm": ">=3.10.8"
+    "npm": ">=2.15.11"
   },
   "scripts": {
     "update": "npm update && npm prune && bower install --allow-root && bower prune --allow-root",
