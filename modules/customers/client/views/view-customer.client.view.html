@@ -1,0 +1,98 @@
+<section>
+  <div class="page-header">
+    <h1 ng-bind="vm.customer.name"></h1>
+  </div>
+  <div class="pull-right"
+       ng-show="vm.customer.isCurrentUserOwner">
+    <a class="btn btn-primary"
+       ui-sref="customers.edit({ customerId: vm.customer._id })">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn btn-primary" ng-click="vm.remove()">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <small>
+    <em class="text-muted">
+      Created on
+      <span ng-bind="vm.customer.created | date:'mediumDate'"></span>
+      by
+      <span ng-if="vm.customer.user"
+            ng-bind="vm.customer.user.displayName"></span>
+      <span ng-if="!vm.customer.user">Deleted User</span>
+    </em>
+  </small>
+  <p class="lead" ng-bind="vm.customer.content"></p>
+  <div class="col-md-12">
+      <form name="vm.form.customerForm" class="" ng-submit="vm.save(vm.form.customerForm.$valid)" novalidate>
+        <fieldset>
+          <div class="row">
+            <div class="col-sm-6 text-center">
+              <i class="glyphicon glyphicon-user cust-profile" ng-class="{'text-danger':referred, 'text-primary':!referred}"></i>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group" show-errors>
+                <label class="control-label" for="firstname">First Name</label>
+                <input name="name" type="text" ng-model="vm.customer.firstname" id="firstname" class="form-control" >
+              </div>
+              <div class="form-group" show-errors>
+                <label class="control-label" for="surname">Surname</label>
+                <input name="name" type="text" ng-model="vm.customer.surname" id="surname" class="form-control" >
+              </div>
+              <div class="form-group" show-errors>
+                <label class="control-label" for="suburb">Suburb</label>
+                <input name="name" type="text" ng-model="vm.customer.suburb" id="suburb" class="form-control" >
+              </div>
+              <div class="form-group" show-errors>
+                <label class="control-label" for="country">Country</label>
+                <input name="name" type="text" ng-model="vm.customer.country" id="country" class="form-control" >
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6 col-sm-push-6">
+              <div class="form-group" show-errors>
+                <label class="control-label" for="phone">Phone</label>
+                <input name="name" type="text" ng-model="vm.customer.phone" id="phone" class="form-control" >
+              </div>
+              <div class="form-group" show-errors>
+                <label class="control-label" for="email">Email</label>
+                <input name="name" type="text" ng-model="vm.customer.email" id="email" class="form-control" >
+              </div>
+            </div>
+            <div class="col-sm-6 col-sm-pull-6">
+                <div class="form-group" show-errors>
+                  <label class="control-label" for="referred">Referred</label>
+                  <input name="name" type="checkbox" ng-model="vm.customer.referred" id="referred" class="form-control checkbox-left" >
+                </div>
+                <div class="form-group" show-errors>
+                  <label class="control-label" for="channel">Channel</label>
+                  <input name="name" type="text" ng-model="vm.customer.channel" id="channel" class="form-control" >
+                </div>
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group" show-errors>
+                  <label class="control-label" for="industry">Industry</label>
+                  <input name="name" type="text" ng-model="vm.customer.industry" id="industry" class="form-control" >
+                </div>
+              </div>
+          </div>
+  
+       <!-- <div class="form-group" show-errors>
+            <label class="control-label" for="name">Name</label>
+            <input name="name" type="text" ng-model="vm.customer.name" id="name" class="form-control" placeholder="Name" required>
+            <div ng-messages="vm.form.customerForm.name.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">Customer name is required.</p>
+            </div>
+          </div> -->
+  
+  
+          <div ng-show="vm.error" class="text-danger">
+            <strong ng-bind="vm.error"></strong>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+</section>

@@ -1,0 +1,45 @@
+<section>
+  <div class="page-header">
+    <h1>Customers</h1>
+  </div>
+  <div class="row">
+<div class="col-xs-12 col-sm-8 text-center">
+    <div class="input-group input-group-lg">
+        <input type="text" class="form-control" placeholder="Search for..." ng-model="searchText">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">Go!</button>
+        </span>
+      </div>
+</div>
+<div class="col-xs-12 col-sm-4 text-center">
+    <mydirc></mydirc>
+    <button type="button" ng-click="clickMe()" class="btn btn-success text-center">
+      <i class="glyphicon glyphicon-user"></i>
+      <i class="glyphicon glyphicon-plus-sign"></i><br>
+      New Customer
+    </button>  
+</div>
+</div>
+</br>
+</br>
+  <div class="list-group">
+    <div class="col-xs-6 col-sm-4 extra-space"  ng-repeat="customer in vm.customers | filter: searchText" >
+        <a ui-sref="customers.view({ customerId: customer._id })" class="list-group-item">
+          <h4 class="cust-list text-center">
+            <i class="glyphicon glyphicon-user"></i>
+          </h4>
+          <div class="row">
+            <div class="col-xs-10 col-xs-offset-1 text-center">
+                <h4>{{customer.firstname}} {{customer.surname}} </h4>
+                <small class="list-group-item-text text-muted">
+                    <span ng-bind="customer.created | date:'mediumDate'"></span>
+                </small>
+            </div>
+          </div>
+        </a>
+    </div>
+  </div>
+  <div class="alert alert-warning text-center" ng-if="vm.customers.$resolved && !vm.customers.length">
+    No Customers yet, why don't you <a ui-sref="customers.create">create one</a>?
+  </div>
+</section>
