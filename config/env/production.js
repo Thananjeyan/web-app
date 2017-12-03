@@ -15,7 +15,7 @@ module.exports = {
   db: {
   //  mongodb://meanuser:meanpass@ds129156.mlab.com:29156/meandb
   //  uri: process.env.MONGOHQ_URL || process.env.MONGODB_URI || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost') + '/mean',
-    uri: process.env.MONGOHQ_URL || process.env.MONGODB_URL || 'mongodb://meanuser:meanpass@ds129156.mlab.com:29156/meandb',
+    uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://meanuser:meanpass@ds129156.mlab.com:29156/meandb',
     options: {
       user: '',
       pass: ''
